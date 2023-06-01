@@ -16,6 +16,7 @@ const neighbor_diffs = [
     (-1, -1), (0, -1), (1, -1),
     (-1, 0), (1, 0),
     (-1, 1), (0, 1), (1, 1)];
+var running = false;
 
 /*
  * Class to store element and liveness of each cell.
@@ -102,6 +103,22 @@ function rules() {
                 model[y][x] = false;
             }else if(!model[y][x] && live == 3) {
                 model[y][x] = true;
+            }
+        }
+    }
+}
+
+/*
+ * Update view based on model
+*/
+function update() {
+    for(var y = 0; y < model.length; y++) {
+        for(var x = 0; x < model[0].length; x++) {
+            var cell = cells[y][x];
+            if(model[y][x]) {
+                cell.element.setAttributeNS(null, "fill", "green");
+            }else {
+                cell.element.setAttributeNS(null, "fill", "red");
             }
         }
     }
