@@ -19,7 +19,7 @@ const svgns = "http://www.w3.org/2000/svg";
 class Cell {
     constructor(element, alive) {
         this.element = element;
-        this.alive = true;
+        this.alive = alive;
     }
 }
 
@@ -30,7 +30,8 @@ function render_cells() {
     var id = 0;
     for(var y = 0; y < height; y+=cell_size) {
         //creating a row array to store model of cells
-        var row = new Array();
+        var model_row = new Array();
+        var cell_row = new Array();
         for(var x = 0; x < width; x+=cell_size) {
             var liveness = Math.random() < 0.5;
             var cell = document.createElementNS(svgns, "rect");
@@ -47,11 +48,14 @@ function render_cells() {
             }
             svg.appendChild(cell);
             var c = new Cell(cell, liveness);
-            cells.push(c);
-            row.push(c.alive);
+            cell_row.push(c);
+            model_row.push(c.alive);
         }
-        model.push(row);
+        model.push(model_row);
+        cells.push(cell_row);
     }
+    console.log(cells);
+    console.log(model);
 }
 
 /*
