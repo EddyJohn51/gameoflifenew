@@ -59,6 +59,16 @@ function render_cells() {
 }
 
 /*
+ * Validates position of indices in 2d array
+*/
+function validate_index(x, y) {
+    if(x < 0 || x >= cells[0].length || y < 0 || y >= cells.length) {
+        return false;
+    }
+    return true;
+}
+
+/*
  * On window load, access necessary DOM elements.
 */
 window.onload = function() {
