@@ -17,7 +17,7 @@ const svgns = "http://www.w3.org/2000/svg";
  * Class to store element and liveness of each cell.
 */
 class Cell {
-    constructor(element) {
+    constructor(element, alive) {
         this.element = element;
         this.alive = true;
     }
@@ -32,16 +32,21 @@ function render_cells() {
         //creating a row array to store model of cells
         var row = new Array();
         for(var x = 0; x < width; x+=cell_size) {
+            var liveness = Math.random() < 0.5;
             var cell = document.createElementNS(svgns, "rect");
             cell.setAttributeNS(null, "x", x);
             cell.setAttributeNS(null, "y", y);
             cell.setAttributeNS(null, "width", cell_size);
             cell.setAttributeNS(null, "height", cell_size);
             cell.setAttributeNS(null, "id", toString(id));
-            cell.setAttributeNS(null, "fill", "none");
             cell.setAttributeNS(null, "stroke", "black");
+            if(liveness) {
+                cell.setAttributeNS(null, "fill", "green");
+            }else {
+                cell.setAttributeNS(null, "fill", "red");
+            }
             svg.appendChild(cell);
-            var c = new Cell(cell);
+            var c = new Cell(cell, liveness);
             cells.push(c);
             row.push(c.alive);
         }
