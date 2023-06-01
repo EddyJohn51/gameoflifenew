@@ -12,6 +12,10 @@ const height = 700;
 const width = 700;
 const cell_size = 70;
 const svgns = "http://www.w3.org/2000/svg";
+const neighbor_diffs = [
+    (-1, -1), (0, -1), (1, -1),
+    (-1, 0), (1, 0),
+    (-1, 1), (0, 1), (1, 1)];
 
 /*
  * Class to store element and liveness of each cell.
@@ -66,6 +70,41 @@ function validate_index(x, y) {
         return false;
     }
     return true;
+}
+
+/*
+ * Find neighbors of a given cell.
+*/
+function check_neighbors(x, y) {
+    var live = 0;
+    for(var diff in neighbor_diffs) {
+        var neighbor_x = x + neighbor_diffs[diff][0];
+        var neighbor_y = y + neighbor_diffs[diff][1];
+        if(validate_index(neighbor_x, neighbor_y)) {
+            if(model[neighbor_y][neighbor_x]) {
+                live += 1;
+            }
+        }
+    }
+    return live;
+}
+
+/*
+ * Change liveness of model to implement rules
+*/
+function rules() {
+    for(var y = 0; y < model.length; y++) {
+        for(var x = 0; x < model[0].length; x++) {
+            var live = get_neighbors(x, y);
+            if(model[y][x] && live < 2) {
+                model[y][x] = false;
+            }else if(model[y][x && live > 3]) {
+                model[y][x] = false;
+            }else if(!model[y][x] && live == 3) {
+                model[y][x] = true;
+            }
+        }
+    }
 }
 
 /*
