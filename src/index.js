@@ -6,6 +6,7 @@
 
 // GLOBALS
 var cells = new Array();
+var model = new Array();
 var svg = null;
 const height = 700;
 const width = 700;
@@ -17,7 +18,7 @@ const svgns = "http://www.w3.org/2000/svg";
 */
 class Cell {
     constructor(element) {
-        this.element = x;
+        this.element = element;
         this.alive = true;
     }
 }
@@ -28,6 +29,8 @@ class Cell {
 function render_cells() {
     var id = 0;
     for(var y = 0; y < height; y+=cell_size) {
+        //creating a row array to store model of cells
+        var row = new Array();
         for(var x = 0; x < width; x+=cell_size) {
             var cell = document.createElementNS(svgns, "rect");
             cell.setAttributeNS(null, "x", x);
@@ -40,7 +43,9 @@ function render_cells() {
             svg.appendChild(cell);
             var c = new Cell(cell);
             cells.push(c);
-        }            
+            row.push(c.alive);
+        }
+        model.push(row);
     }
 }
 
