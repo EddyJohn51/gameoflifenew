@@ -93,13 +93,18 @@ function validate_index(x, y) {
 function check_neighbors(x, y) {
     var live = 0;
     for(var diff in neighbor_diffs) {
-        var neighbor_x = x + neighbor_diffs[diff][0];
-        var neighbor_y = y + neighbor_diffs[diff][1];
+        var neighbor_x = (x + neighbor_diffs[diff][0] + rows) % rows;
+        var neighbor_y = (y + neighbor_diffs[diff][1] + cols) % cols;
+        /*
         if(validate_index(neighbor_x, neighbor_y)) {
             if(model[neighbor_y][neighbor_x]) {
                 live += 1;
             }
         }
+        */
+       if(model[neighbor_y][neighbor_x]) {
+        live += 1;
+       }
     }
     return live;
 }
