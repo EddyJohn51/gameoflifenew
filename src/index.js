@@ -51,11 +51,11 @@ function render_cells() {
             cell.setAttributeNS(null, "width", cell_size);
             cell.setAttributeNS(null, "height", cell_size);
             cell.setAttributeNS(null, "id", toString(id));
-            cell.setAttributeNS(null, "stroke", "black");
+            cell.setAttributeNS(null, "stroke", "#27374D");
             if(liveness) {
-                cell.setAttributeNS(null, "fill", "black");
+                cell.setAttributeNS(null, "fill", "#526D82");
             }else {
-                cell.setAttributeNS(null, "fill", "white");
+                cell.setAttributeNS(null, "fill", "#DDE6ED");
             }
             svg.appendChild(cell);
             var c = new Cell(cell, liveness);
@@ -156,9 +156,9 @@ function update() {
         for(var x = 0; x < model[y].length; x++) {
             var cell = cells[y][x];
             if(model[y][x]) {
-                cell.element.setAttributeNS(null, "fill", "black");
+                cell.element.setAttributeNS(null, "fill", "#526D82");
             }else {
-                cell.element.setAttributeNS(null, "fill", "white");
+                cell.element.setAttributeNS(null, "fill", "#DDE6ED");
             }
         }
     }
