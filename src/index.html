@@ -4,16 +4,31 @@
         <title>Conway's Game of Life</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@200;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="style.css">
         <script src="index.js"></script>
     </head>
 
     <body>
+        <div id="banner">
+            <h1>Conway's Game of Life</h1>
+            <p>
+                This is a simple implementation in vanilla JavaScript of John Conway's Game of Life. The Game of Life is a two-dimensional cellular automaton where the rules are based
+                on real-world situations. Read more about the Game of Life <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">here.</a>
+            </p>
+        </div>
         <svg id="cells" width="700" height="700">
         </svg>
 
         <button id="start" onclick="start()">Start</button>
         <button id="stop" onclick="stop()">Stop</button>
+
+        <footer>
+            <p>Created by John Eddy</p>
+            <p>View source code on <a href="https://github.com/EddyJohn51/gameoflife2">GitHub</a></p>
+        </footer>
     </body>
     
 </html>
