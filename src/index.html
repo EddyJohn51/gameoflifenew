@@ -14,16 +14,24 @@
     <body>
         <div id="banner">
             <h1>Conway's Game of Life</h1>
-            <p>
-                This is a simple implementation in vanilla JavaScript of John Conway's Game of Life. The Game of Life is a two-dimensional cellular automaton where the rules are based
-                on real-world situations. Read more about the Game of Life <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">here.</a>
-            </p>
         </div>
+
+        <p>
+            This is a simple implementation in vanilla JavaScript of John Conway's Game of Life. The Game of Life is a two-dimensional cellular automaton where the rules are based
+            on real-world situations. Read more about the Game of Life <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life">here.</a>
+        </p>
+        <p>
+            To use, simply click on a cell to toggle it as alive or dead. When you are ready, click the start button to begin the simulation. At any point, you can press the stop button and change
+            the status of the cells.
+        </p>
+
         <svg id="cells" width="700" height="700">
         </svg>
 
+        <div id="buttons">
         <button id="start" onclick="start()">Start</button>
         <button id="stop" onclick="stop()">Stop</button>
+        </div>
 
         <footer>
             <p>Created by John Eddy</p>

@@ -1,0 +1,49 @@
+:root {
+    --background-color: #9DB2BF;
+    --accent-color: #27374D;
+}
+
+body {
+    background-color: var(--background-color);
+}
+
+h1 {
+    font-family: "Geologica", sans-serif;
+    color: #DDE6ED;
+}
+
+#banner {
+    background-color: var(--accent-color);
+    padding: 0.75rem;
+    text-align: center;
+}
+
+#banner p {
+    font-family: "Geologica", sans-serif;
+}
+
+p {
+    font-family: "Geologica", sans-serif;
+    font-size: 1.25rem;
+}
+
+svg {
+    display: block;
+    margin: auto;
+}
+
+#buttons {
+    display: block;
+    margin: auto;
+    text-align: center;
+}
+
+#buttons button {
+    padding: 0.5rem;
+    margin: 0.5rem 2rem;
+}
+
+footer p {
+    font-family: "Geologica", sans-serif;
+    font-size: 0.75rem;
+}
